@@ -4,7 +4,7 @@ Una selección de 24 skills de Claude Code sacadas de dos librerías, la de Matt
 
 ## Si nunca has usado esto, empieza aquí
 
-Una **skill** es una receta que Claude sigue para hacer bien un tipo de tarea. No tienes que aprenderte ninguna. Instálalas y Claude te va enseñando de a poco.
+Una **skill** es un archivo de instrucciones que Claude sigue para un tipo de tarea. No tienes que aprenderte ninguna. Instálalas y Claude te va enseñando de a poco.
 
 1. Abre Claude Code. Si no lo tienes, sigue la guía oficial: https://docs.claude.com/en/docs/claude-code/quickstart
 2. Copia este mensaje y pégaselo a Claude tal cual:
@@ -15,29 +15,34 @@ Una **skill** es una receta que Claude sigue para hacer bien un tipo de tarea. N
 
 3. Claude te va a preguntar si quieres que te vaya enseñando. Responde «sí».
 
-Desde ahí, cada vez que le pidas algo, Claude hace lo que pediste. De vez en cuando te explica una palabra nueva (una sola vez) o te da un consejo corto para pedir mejor. Si quieres menos, dile «menos consejos». Si quieres que pare, «para».
+Desde ahí, cada vez que le pidas algo, Claude hace lo que pediste. De vez en cuando te explica una palabra nueva, una sola vez, o te da un consejo corto para pedir mejor. Si quieres menos, dile «menos consejos». Si quieres que pare, «para».
 
 ## Para Claude
 
 Si un usuario te pidió instalar este repo:
 
-1. Clona el repo en `~/skills-destiladas` y enlaza cada carpeta de `skills/` en `~/.claude/skills/` (comando en «Instalación»). Si ya existe una skill con el mismo nombre, no la pises: pregúntale al usuario.
-2. Agrega estas dos líneas al `~/.claude/CLAUDE.md` del usuario (créalo si no existe) y muéstrale lo que agregaste:
+1. Clona el repo en `~/skills-destiladas` y enlaza cada carpeta de `skills/` en `~/.claude/skills/` (comando en «Instalación»). Si ya existe una skill con el mismo nombre, no la pises. Pregúntale al usuario.
+2. Agrega estas tres líneas al `~/.claude/CLAUDE.md` del usuario y muéstrale lo que agregaste. Si el archivo no existe, créalo.
 
    ```
    Antes de cada tarea, aplica la skill skill-advisor.
    Si el usuario es nuevo en Claude Code, aplica la skill beginner-coach.
+   Todo texto que escribas, sean respuestas, prompts, archivos o mensajes, sigue las reglas de la skill unslop.
    ```
 
 3. Corre la skill `beginner-coach`. Ella pregunta si quiere aprender.
 4. Explícale en dos frases simples qué instalaste. Asume que no sabe qué es una terminal.
+
+## unslop en todo texto
+
+Con la tercera línea de `CLAUDE.md`, Claude escribe todo por las reglas de `unslop`: respuestas, prompts, skills y archivos. Así nada de lo que te entrega suena a IA, ni siquiera los prompts que te propone skill-advisor.
 
 ## beginner-coach
 
 Para gente que no sabe nada de Claude Code ni de la terminal. Hace lo que la persona pidió y, de paso, le enseña de a poco:
 
 - Pregunta primero si quiere aprender.
-- Explica cada palabra nueva una sola vez, con una comparación cotidiana, justo donde aparece.
+- Explica cada palabra nueva una sola vez, en una frase simple, justo donde aparece.
 - Cuando la persona tiene que hacer algo ella misma, le dice dónde, qué pegar, qué va a ver si funcionó y qué mandar si no.
 - Da como máximo un consejo por respuesta, sacado de lo que la persona acaba de escribir, y no en todas las respuestas.
 - Sigue un camino de tres niveles: pedir bien, trabajar juntos, usar herramientas.
